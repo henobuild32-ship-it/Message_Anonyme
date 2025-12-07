@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un message pour toi, Kethia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #8a2be2 0%, #da70d6 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+        
+        .greeting {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .button-container {
+            padding: 30px;
+            text-align: center;
+            background-color: #f9f7ff;
+        }
+        
+        .reveal-btn {
+            background: linear-gradient(90deg, #ff6b6b 0%, #ff8e8e 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.4rem;
+            font-family: 'Playfair Display', serif;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .reveal-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+            background: linear-gradient(90deg, #ff5252 0%, #ff7b7b 100%);
+        }
+        
+        .reveal-btn:active {
+            transform: translateY(-2px);
+        }
+        
+        .message-container {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 1.2s ease;
+            background-color: #fff;
+        }
+        
+        .message-container.show {
+            padding: 50px 60px;
+            max-height: 1000px;
+        }
+        
+        .message {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color: #444;
+            text-align: justify;
+            position: relative;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .message::before {
+            content: "“";
+            font-family: 'Dancing Script', cursive;
+            font-size: 8rem;
+            color: #da70d6;
+            position: absolute;
+            top: -30px;
+            left: -10px;
+            opacity: 0.3;
+        }
+        
+        .heart-icon {
+            color: #ff6b6b;
+            display: inline-block;
+            margin: 0 5px;
+        }
+        
+        .stars-icon {
+            color: #ffd700;
+            display: inline-block;
+            margin: 0 5px;
+        }
+        
+        .signature {
+            text-align: right;
+            margin-top: 40px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #8a2be2;
+            font-weight: bold;
+        }
+        
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #f9f7ff;
+            color: #888;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .animation-area {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            color: rgba(255, 107, 107, 0.2);
+            font-size: 24px;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .greeting {
+                font-size: 3.5rem;
+            }
+            
+            .message-container.show {
+                padding: 30px 20px;
+            }
+            
+            .message {
+                font-size: 1.3rem;
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .greeting {
+                font-size: 2.8rem;
+            }
+            
+            .message {
+                font-size: 1.1rem;
+                line-height: 1.6;
+            }
+            
+            .signature {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="animation-area" id="animation-area"></div>
+            <h1 class="greeting">Coucou Kethia</h1>
+            <p class="subtitle">Un message spécial t'attend...</p>
+        </div>
+        
+        <div class="button-container">
+            <button class="reveal-btn" id="reveal-btn">
+                <i class="fas fa-gift"></i> Clique ici pour découvrir le message
+            </button>
+        </div>
+        
+        <div class="message-container" id="message-container">
+            <div class="message">
+                <i class="fas fa-star stars-icon"></i> En tant qu'informaticien, j'ai l'habitude d'innover et de créer des merveilles avec le code... mais aucune innovation, aussi incroyable soit-elle, ne pourrait égaler la beauté et l'élégance qui te caractérisent. <i class="fas fa-star stars-icon"></i>
+                
+                <br><br>Je suis vraiment heureux que nous prenions le temps de nous connaître. Chaque moment partagé me fait sourire et me rend encore plus impatient de découvrir ce que l'avenir nous réserve. J'espère sincèrement qu'un jour, pas très loin, nous ne serons plus seulement amis, mais que nous partagerons quelque chose de plus profond et de plus vrai.
+                
+                <br><br>Reste toujours toi-même, unique et fascinante. Même le code le plus complexe serait jaloux de ton sourire et de la lumière que tu apportes autour de toi. <i class="fas fa-heart heart-icon"></i>
+                
+                <div class="signature">Henock</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Message créé avec soin et attention</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const revealBtn = document.getElementById('reveal-btn');
+            const messageContainer = document.getElementById('message-container');
+            const animationArea = document.getElementById('animation-area');
+            
+            // Créer des coeurs flottants
+            function createFloatingHearts() {
+                for (let i = 0; i < 20; i++) {
+                    const heart = document.createElement('div');
+                    heart.classList.add('floating-heart');
+                    heart.innerHTML = '<i class="fas fa-heart"></i>';
+                    
+                    // Position aléatoire
+                    const posX = Math.random() * 100;
+                    const delay = Math.random() * 15;
+                    const duration = 15 + Math.random() * 10;
+                    const size = 16 + Math.random() * 20;
+                    
+                    heart.style.left = `${posX}%`;
+                    heart.style.animationDelay = `${delay}s`;
+                    heart.style.animationDuration = `${duration}s`;
+                    heart.style.fontSize = `${size}px`;
+                    
+                    animationArea.appendChild(heart);
+                }
+            }
+            
+            createFloatingHearts();
+            
+            // Gestionnaire d'événement pour le bouton
+            revealBtn.addEventListener('click', function() {
+                // Afficher le message avec animation
+                messageContainer.classList.add('show');
+                
+                // Changer le texte et le style du bouton
+                revealBtn.innerHTML = '<i class="fas fa-heart"></i> Message révélé!';
+                revealBtn.style.background = 'linear-gradient(90deg, #8a2be2 0%, #da70d6 100%)';
+                revealBtn.disabled = true;
+                
+                // Ajouter des coeurs supplémentaires pour l'animation
+                for (let i = 0; i < 10; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.classList.add('floating-heart');
+                        heart.innerHTML = '<i class="fas fa-heart"></i>';
+                        
+                        // Position aléatoire
+                        const posX = 20 + Math.random() * 60;
+                        const delay = 0;
+                        const duration = 8 + Math.random() * 5;
+                        const size = 20 + Math.random() * 25;
+                        const color = i % 2 === 0 ? '#ff6b6b' : '#8a2be2';
+                        
+                        heart.style.left = `${posX}%`;
+                        heart.style.animationDelay = `${delay}s`;
+                        heart.style.animationDuration = `${duration}s`;
+                        heart.style.fontSize = `${size}px`;
+                        heart.style.color = color;
+                        
+                        animationArea.appendChild(heart);
+                    }, i * 200);
+                }
+                
+                // Lecture d'un son doux (optionnel)
+                playGentleSound();
+            });
+            
+            function playGentleSound() {
+                // Créer un contexte audio simple pour une note douce
+                try {
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                    
+                    oscillator.frequency.value = 523.25; // Note C5
+                    oscillator.type = 'sine';
+                    
+                    gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+                    gainNode.gain.linearRampToValueAtTime(0.1, audioContext.currentTime + 0.1);
+                    gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 1);
+                    
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.stop(audioContext.currentTime + 1);
+                } catch (e) {
+                    console.log("Audio non supporté ou désactivé");
+                }
+            }
+        });
+    </script>
+</body>
+</html> 
